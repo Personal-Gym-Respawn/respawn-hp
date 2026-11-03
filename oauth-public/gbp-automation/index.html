@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Respawn GBP投稿自動化｜目的・機能とデータ利用</title>
+  <meta name="description" content="Respawnの自社用GBP投稿自動化アプリの機能、利用するGoogleデータ、権限と現在の検証段階を説明します。">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#171717">
+  <link rel="canonical" href="https://respawn-gym.com/gbp-automation/">
+  <meta property="og:title" content="Respawn GBP投稿自動化｜目的・機能とデータ利用">
+  <meta property="og:description" content="Respawnの自社用GBP投稿自動化アプリの機能、利用するGoogleデータ、権限と現在の検証段階を説明します。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://respawn-gym.com/gbp-automation/">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="shell header-inner">
+    <a class="wordmark" href="/" aria-label="Personal Gym Respawn ホーム">Respawn<span aria-hidden="true">.</span></a>
+    <nav aria-label="メインナビゲーション"><a href="/">Respawn</a><a href="/gbp-automation/" aria-current="page">GBP自動化について</a><a href="/privacy/">プライバシー</a></nav>
+  </div></header>
+  <div class="review-notice"><div class="shell"><strong>公開前の確認用ページ</strong><span>掲載内容とデータの運用条件を確認中です。</span></div></div>
+  <main id="main" class="shell" tabindex="-1">
+    <section class="hero compact" aria-labelledby="app-title"><p class="eyebrow">APPLICATION</p><h1 id="app-title">Respawn GBP投稿自動化</h1><p class="lead">店舗の投稿原稿を確認し、承認された情報を適切な日時に届けるための、自社運営用のしくみです。</p></section>
+    <section class="content-section" aria-labelledby="purpose-title"><h2 id="purpose-title">目的と利用対象</h2><p>Personal Gym Respawnの運営者が、自社のGoogleビジネスプロフィールと投稿原稿を管理するために使用します。一般のお客様や他店舗向けのサービス申込みは受け付けていません。</p></section>
+    <section class="content-section" aria-labelledby="features-title"><h2 id="features-title">機能と現在の状態</h2><ol class="steps"><li><h3>店舗と既存投稿の確認</h3><p>認可したGoogleアカウントが管理するビジネスアカウント・店舗・既存投稿を読み取り、接続と投稿の重複を確認します。</p></li><li><h3>原稿と承認の確認</h3><p>紐づくGoogleスプレッドシートから原稿、予定日時、承認状況、処理履歴を読み取り、投稿候補を検証します。未承認原稿や過去の予定は送信候補から除外する設計です。</p></li><li><h3>予約投稿の支援（本番利用前）</h3><p>承認済み原稿をGoogleへ送信し、投稿識別子や状態をシートへ記録するコードがあります。現行の引継ぎ記録では本番送信は無効です。実際の予約投稿と継続運用は、別途確認・承認が必要です。</p></li></ol><p class="note">この公開案内ページからGoogleへの認可、投稿、シート更新は行いません。</p></section>
+    <section class="content-section" aria-labelledby="data-title"><h2 id="data-title">利用するGoogleデータ</h2><ul><li>ビジネスアカウントの識別子・名称・種別・権限情報（API応答に含まれる範囲）</li><li>店舗の識別子・店舗名・店舗コード</li><li>既存投稿の本文、投稿識別子、状態、日時、画像・リンクなどのAPI応答</li><li>紐づくスプレッドシートの投稿原稿、予定日時、承認状況、画像URL、処理状態・履歴</li></ul><p>これらを接続確認、承認確認、重複照合、将来の投稿処理と復旧に利用します。保存先、ログ、削除に関する確認状況は<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</p></section>
+    <section class="content-section" aria-labelledby="permissions-title"><h2 id="permissions-title">Googleへの権限と認証</h2><dl class="facts"><div><dt><code>business.manage</code></dt><dd>ビジネスプロフィールの参照と管理に必要な権限です。読取専用の権限ではありません。現在のGET検証と、将来の投稿処理の有効化は分けて管理します。</dd></div><div><dt><code>spreadsheets.currentonly</code></dt><dd>アプリが紐づくスプレッドシートの原稿・承認情報の参照と、将来の処理結果の記録に使用します。</dd></div><div><dt><code>script.external_request</code></dt><dd>Apps ScriptからGoogle APIに接続するために使用します。将来、画像URLを使用する場合の取得確認にも使う設計です。</dd></div></dl><p>認証にはGoogle Apps Scriptの認可機構を使用します。独自のOAuthログイン画面やリフレッシュトークンの保存機構は設けていません。</p><p>このアプリはRespawnが運営するもので、Googleが提供・認定したアプリであることを示すものではありません。</p></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><div><strong>Personal Gym Respawn</strong><p>大阪府高槻市のパーソナルジム</p></div><nav aria-label="フッターナビゲーション"><a href="/">Respawn</a><a href="/gbp-automation/" aria-current="page">GBP自動化について</a><a href="/privacy/">プライバシー</a></nav><p class="copyright">© Personal Gym Respawn</p></div></footer>
+</body>
+</html>

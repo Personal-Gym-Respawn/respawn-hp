@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プライバシーポリシー｜Respawn GBP投稿自動化</title>
+  <meta name="description" content="Respawn GBP投稿自動化のGoogleデータの取得・利用・保存・共有・削除と、公開前に確定が必要な運用条件。">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#171717">
+  <link rel="canonical" href="https://respawn-gym.com/privacy/">
+  <meta property="og:title" content="プライバシーポリシー｜Respawn GBP投稿自動化">
+  <meta property="og:description" content="Respawn GBP投稿自動化のGoogleデータの取得・利用・保存・共有・削除と、公開前に確定が必要な運用条件。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://respawn-gym.com/privacy/">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="shell header-inner">
+    <a class="wordmark" href="/" aria-label="Personal Gym Respawn ホーム">Respawn<span aria-hidden="true">.</span></a>
+    <nav aria-label="メインナビゲーション"><a href="/">Respawn</a><a href="/gbp-automation/">GBP自動化について</a><a href="/privacy/" aria-current="page">プライバシー</a></nav>
+  </div></header>
+  <div class="review-notice"><div class="shell"><strong>公開前の確認用ページ</strong><span>掲載内容とデータの運用条件を確認中です。</span></div></div>
+  <main id="main" class="shell" tabindex="-1">
+    <section class="hero compact" aria-labelledby="privacy-title"><p class="eyebrow">PRIVACY</p><h1 id="privacy-title">プライバシーポリシー</h1><p class="lead">Respawn GBP投稿自動化と、この案内サイトにおけるデータの取扱い。</p><p class="note">草案確認日：2026年10月30日 · 公開前の運用確認中</p></section>
+    <section class="content-section" aria-labelledby="scope-title"><h2 id="scope-title">1. 運営者と適用範囲</h2><p>Personal Gym Respawn（運営事業者：堀江 一宇）が運営する、自社用の「Respawn GBP投稿自動化」と、その案内サイトを対象とします。店舗の予約・入会・健康情報を取り扱うサービス全体のポリシーは、サービス公開時に別途整備します。</p></section>
+    <section class="content-section" aria-labelledby="access-title"><h2 id="access-title">2. 取得する情報と目的</h2><p>認可したGoogleアカウントを通じ、Google Business Profile APIからビジネスアカウントの識別子・名称・種別・権限情報、店舗の識別子・名称・店舗コード、既存投稿の本文・識別子・状態・日時・画像やリンク等の応答を取得します。項目はAPIの応答に含まれる範囲です。</p><p>紐づくGoogleスプレッドシートから、投稿原稿、予定日時、承認状況、画像URL、処理状態と履歴を読み取ります。接続確認、原稿の承認確認、重複照合、投稿候補の検証に使用します。</p><p>将来の本番利用では、承認済み原稿と必要な画像URL・予定日時をGoogleへ送り、処理結果を記録する設計です。本番送信は引継ぎ記録上、無効であり、実運用前の確認・承認が必要です。</p></section>
+    <section class="content-section" aria-labelledby="storage-title"><h2 id="storage-title">3. 保存先と保存期間</h2><ul><li>原稿、予定日時、承認情報は、運営者が管理するGoogleスプレッドシートに保存されています。</li><li>GET検証ではAPI応答を実行中のメモリで処理し、店舗識別情報、店舗名、件数・状態、重複候補などの検証結果をApps Scriptの実行ログへ出力するコードがあります。</li><li>過去の検証記録には、シートのスナップショット、GET結果、実行ログ、コードの保全資料を運営者のローカル作業領域に保存した記録があります。</li><li>本番用コードには、投稿識別子、処理日時、エラーと処理履歴をシートへ記録する機能があります。復旧用の履歴には送信内容や照合用の投稿識別子が含まれます。現行環境での履歴作成・本番利用は未確認です。</li><li>設定に使用する店舗識別子等は、シートやApps Scriptの設定領域で扱う設計です。アクセストークンはApps Scriptから取得してGoogle API通信に使用し、独自のリフレッシュトークン保存機構はありません。</li></ul><p>2026年10月30日の確認では、関連するGoogle Cloudの通常ログ用バケットは30日、監査ログ用バケットは400日の保持設定でした。これらは異なる種類のログの設定であり、すべてのGoogleデータが同じ期間で削除されることを意味しません。</p><p><strong>アプリ全体の保存期間・削除運用は未確定です。</strong>ローカル検証資料、バックアップ、シートと処理履歴を含む保持期間・削除方法・担当者を確認中です。一定日数で全保存先から自動削除されるとは案内できません。</p></section>
+    <section class="content-section" aria-labelledby="sharing-title"><h2 id="sharing-title">4. 送信先・共有・外部サービス</h2><p>確認したアプリのコードではGoogle APIとの通信を行い、シート・実行ログはGoogleのサービス上で処理されます。将来の画像URL利用時には、画像の取得確認で外部の画像配信先へ接続し、投稿時にはそのURLをGoogleへ送信する設計です。</p><p>開発・検証資料には、API由来の識別情報や件数等をGitHubの非公開リポジトリに記録した例があります。提供された会話ログにも取得結果に由来する情報が含まれています。シート、Apps Script、Google Cloud、ローカル資料、OpenAIの会話・作業環境を含む実際の閲覧者と保存先・共有先の全体は確認中です。「第三者への提供や共有は一切ない」とは断定しません。公開前に運営者が取扱いを確定します。</p><p>この案内サイトにはフォーム、Googleログイン、アクセス解析や外部フォントの読込みを実装していません。公開予定のホスティング事業者Cloudflareでは、配信・セキュリティのためにIPアドレス等の通信情報が処理される場合があります。実際のログ・解析設定と保持条件は公開前に確認します。</p></section>
+    <section class="content-section" aria-labelledby="deletion-title"><h2 id="deletion-title">5. 利用停止・認可の取消し・削除</h2><p>Googleアカウントの<a href="https://myaccount.google.com/connections">サードパーティとの接続</a>で、このアプリへの認可を確認・取り消すことができます。認可の取消しは、シート、実行ログ、ローカル資料やGoogle上の既存投稿の削除を意味しません。</p><p>確認したコードには、保存資料を期限で消去する処理や、利用者が保存済みデータを一括削除する機能はありません。削除に関する運用責任はPersonal Gym Respawnが負う方針です。具体的な削除手段、本人確認、担当者、削除対象・期限、バックアップの扱いは公開前に確定します。既存投稿や処理履歴の削除は、重複送信防止や復旧に影響するため、確認なしに行いません。</p></section>
+    <section class="content-section" aria-labelledby="security-title"><h2 id="security-title">6. 管理と公開前に確認する事項</h2><p>認証情報と実データを公開ページや公開リポジトリへ含めない構成とします。サービス側の共有権限や端末の保護、保持・削除の実運用は、運営者による確認が必要です。</p><ul><li>ログ、取得済みGoogleデータ、ローカル検証資料とバックアップの保存範囲・保持期間・削除手順</li><li>Google Business Profile APIのコンテンツ保存条件との整合</li><li>シート・スクリプト・Cloud・ローカル資料の閲覧者と共有先</li><li>公開問い合わせ窓口、削除依頼の受付方法・担当者・対応期限</li><li>サイト配信時のログ・解析設定、および本ポリシーの施行日</li></ul><p class="note">上記を確定するまで、この草案を確定済みポリシーとしてOAuth本番設定へ登録しません。</p></section>
+    <section class="content-section" aria-labelledby="contact-title"><h2 id="contact-title">7. お問い合わせと改定</h2><p>データの取扱いと削除依頼の問い合わせ先候補は、<a href="mailto:respawn.personalgym@gmail.com">respawn.personalgym@gmail.com</a>です。公開前に掲載内容と受付方法を運営者が最終確認します。運用や取扱いに変更がある場合は、内容と日付を更新します。施行日は公開承認後に定めます。</p></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><div><strong>Personal Gym Respawn</strong><p>大阪府高槻市のパーソナルジム</p></div><nav aria-label="フッターナビゲーション"><a href="/">Respawn</a><a href="/gbp-automation/">GBP自動化について</a><a href="/privacy/" aria-current="page">プライバシー</a></nav><p class="copyright">© Personal Gym Respawn</p></div></footer>
+</body>
+</html>
